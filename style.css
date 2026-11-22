@@ -1,0 +1,32 @@
+* { box-sizing: border-box; }
+html, body {
+  width: 100%; height: 100%; margin: 0; overflow: hidden;
+  background: #101827; color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+}
+body { min-height: 100svh; }
+#film { position: relative; width: 100%; height: 100%; overflow: hidden; background: #101827; }
+#screen { display: block; width: 100%; height: 100%; outline: none; }
+#title-card, #end-card {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  pointer-events: none; padding: 1.5rem;
+  background: radial-gradient(ellipse at center, rgba(8,15,28,.12), rgba(8,15,28,.62));
+  transition: opacity 1.5s ease;
+}
+#title-card { opacity: 1; }
+#title-card .eyebrow { font: 600 .7rem/1.5 system-ui, sans-serif; letter-spacing: .42em; color: #e9c98d; margin-bottom: 1rem; }
+#title-card h1 { font-size: clamp(2.2rem, 8vw, 6.2rem); line-height: .95; letter-spacing: .04em; margin: 0; text-shadow: 0 5px 35px #000; }
+#title-card p { font: 400 clamp(.8rem, 2vw, 1.05rem)/1.5 system-ui, sans-serif; letter-spacing: .12em; color: #e9dfcd; margin-top: 1.4rem; }
+#end-card { opacity: 0; background: rgba(5, 9, 16, .82); }
+#end-card p { font: 600 .8rem/1.4 system-ui, sans-serif; letter-spacing: .4em; color: #e7c78c; margin: 0 0 .6rem; }
+#end-card h2 { font-size: clamp(2rem, 7vw, 5.5rem); line-height: 1; letter-spacing: .04em; margin: 0; }
+#status {
+  position: absolute; left: 50%; bottom: max(1rem, env(safe-area-inset-bottom));
+  transform: translateX(-50%); font: 12px system-ui, sans-serif;
+  color: rgba(255,255,255,.62); letter-spacing: .08em;
+  transition: opacity .8s ease; pointer-events: none;
+}
+@media (orientation: portrait) {
+  #title-card h1 { font-size: clamp(2rem, 12vw, 4.4rem); }
+}
